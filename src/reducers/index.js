@@ -1,7 +1,10 @@
 import { combineReducers } from 'redux';
+import RiverListReducer from './RiverListReducer';
+import RiverReducer from './RiverReducer';
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  rivers: RiverListReducer,
+  selectedRivers: RiverReducer
 });
 
 export default rootReducer;
