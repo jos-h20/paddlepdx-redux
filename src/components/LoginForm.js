@@ -1,66 +1,78 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { emailChanged, passwordChanged, loginUser } from '../actions';
+import { Link } from 'react-router';
+import { emailChanged, passwordChanged, loginUser, riversFetch } from '../actions';
 
 
 
 class LoginForm extends Component {
-  onEmailChange(text) {
-    this.props.emailChanged(text);
+  constructor(props) {
+    super(props);
+  }
+  static contextTypes = {
+  router: PropTypes.object
+};
+
+  onEmailChange(event) {
+    this.props.emailChanged(event.target.value);
   }
 
-  onPasswordChange(text) {
-    this.props.passwordChanged(text);
+  onPasswordChange(event) {
+    this.props.passwordChanged(event.target.value);
   }
 
-  onButtonClick() {
+  loginUser(event) {
+    event.preventDefault();
     const { email, password } = this.props;
 
     this.props.loginUser({ email, password });
+    // this.props.riversFetch();
+    this.context.router.push('/all');
   }
 
-  renderButton() {
-    if (this.props.loading) {
-      return <div>Loading...</div>;
-    }
-    return (
-      <Button onPress={this.onButtonPress.bind(this)}>
-        Login
-      </Button>
-    );
-  }
+
+  // renderButton() {
+  //   if (this.props.loading) {
+  //     return <div>Loading...</div>;
+  //   }
+  //   return (
+  //     <button onClick={this.onButtonClick.bind(this)}>
+  //       Login
+  //     </button>
+  //   );
+  // }
 
   render() {
+
     return (
       <div>
-        <div>
-          <Input
-            label="Email"
+        <form onSubmit={this.loginUser.bind(this)}>
+            <input
             placeholder="test@test.com"
-            onChangeText={this.onEmailChange.bind(this)}
             value={this.props.email}
-          />
-        </div>
+            onChange={this.onEmailChange.bind(this)}
 
-        <div>
-          <Input
-            secureTextEntry
-            label="Password"
+            />
+            <input
             placeholder="password"
-            onChangeText={this.onPasswordChange.bind(this)}
             value={this.props.password}
-          />
-        </div>
+            onChange={this.onPasswordChange.bind(this)}
 
-        <div>
-          {this.props.error}
-        </div>
-
-        <div>
-
-          {this.renderButton()}
-        </div>
+            />
+          <button type="submit">Submit</button>
+        </form>
+        {this.props.error}
+      <div className="text-xs-right">
+        <Link to="/all" className="btn btn-primary">
+          All
+        </Link>
       </div>
+      <div className="text-xs-right">
+        <Link to="/selected" className="btn btn-primary">
+          Selected
+        </Link>
+      </div>
+    </div>
     );
   }
 }
@@ -73,4 +85,4 @@ const mapStateToProps = ({ auth }) => {
 };
 
 
-export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser })(LoginForm);
+export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser, riversFetch })(LoginForm);

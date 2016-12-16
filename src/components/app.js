@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import AllRiversList from './AllRiversList';
 import SelectedRiversList from './SelectedRiversList';
+import LoginForm from './LoginForm';
 
 class App extends Component {
 
@@ -19,8 +20,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <AllRiversList />
-        <SelectedRiversList />
+        {this.props.children}
       </div>
     );
   }
