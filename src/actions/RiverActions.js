@@ -1,10 +1,11 @@
 import firebase from 'firebase';
+import axios from 'axios';
 
 
 import {
   RIVER_SELECT,
   RIVERS_FETCH_SUCCESS,
-
+  API_RIVERS_FETCH
 } from './types';
 
 // export function selectRiver(river) {
@@ -50,3 +51,17 @@ export const riverDelete = ({ uid }) => {
       .remove()
   };
 };
+
+
+const ROOT_URL = `https://waterservices.usgs.gov/nwis/iv/?format=json`
+
+const PARAM_URL = `&parameterCd=00060&siteStatus=all`;
+
+
+export const fetchApiRivers = (riverIds) => {
+
+  const url = `${ROOT_URL}&sites=${riverIds}${PARAM_URL}`;
+
+     const request = axios.get(url)
+        return {type: API_RIVERS_FETCH, payload: request};
+}

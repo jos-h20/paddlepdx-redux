@@ -10,9 +10,15 @@ class AllRiversList extends Component {
       return (
         <li
           key={river.name}
-          onClick={() => this.props.riverSelect(river)}
+
           className="list-group-item">
           {river.name}
+          <button
+            onClick={() => this.props.riverSelect(river)}
+            className="add btn btn-primary"
+          >
+             Add
+          </button>
         </li>
       );
     });
