@@ -26,8 +26,7 @@ class LoginForm extends Component {
     const { email, password } = this.props;
 
     this.props.loginUser({ email, password });
-    // this.props.riversFetch();
-    this.context.router.push('/all');
+
   }
 
 
@@ -41,6 +40,15 @@ class LoginForm extends Component {
   //     </button>
   //   );
   // }
+
+componentWillReceiveProps(nextProps) {
+  console.log(nextProps, 'next props log in');
+    if (nextProps.newUser) {
+      this.context.router.push('/all');
+    } else if (nextProps.user) {
+      this.context.router.push('/selected');
+    } 
+}
 
   render() {
 
@@ -79,9 +87,10 @@ class LoginForm extends Component {
 
 
 
-const mapStateToProps = ({ auth }) => {
-  const { email, password, error, loading } = auth;
-  return { email, password, error, loading };
+const mapStateToProps = (state) => {
+  const { email, password, error, loading, newUser, user } = state.auth;
+  const { selRivers } = state.selectedRivers;
+  return { email, password, error, loading, user, selRivers, newUser };
 };
 
 

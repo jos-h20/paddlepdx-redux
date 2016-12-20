@@ -5,9 +5,18 @@ import { riverSelect } from '../actions/index.js';
 
 
 class AllRiversList extends Component {
+  constructor(){
+    super();
+
+    this.state = { isSelected: false};
+  }
   renderList() {
     return this.props.rivers.map((river) => {
+      // if (river.isSelected) {
+      //   return<li></li>;
+      // }
       return (
+
         <li
           key={river.name}
 
@@ -25,7 +34,8 @@ class AllRiversList extends Component {
   }
 
   render() {
-    console.log(this.props)
+    console.log(this.props, 'all rivers list')
+
     return (
       <div>
         <ul className="list-group col-sm-4">

@@ -9,6 +9,12 @@ export default function ({ dispatch }) {
         const newAction = { ...action, payload: response };
         dispatch(newAction);
       });
-
+      setInterval(() => {
+        action.payload
+        .then(function(response) {
+          const newAction = { ...action, payload: response };
+          dispatch(newAction);
+        })
+      }, 900000);
   }
 }

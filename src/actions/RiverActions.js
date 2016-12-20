@@ -64,4 +64,5 @@ export const fetchApiRivers = (riverIds) => {
 
      const request = axios.get(url)
         return {type: API_RIVERS_FETCH, payload: request};
+
 }
