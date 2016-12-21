@@ -9,3 +9,4 @@ export const LOGIN_USER = 'login_user';
 export const RIVER_SELECT = 'river_select';
 export const RIVERS_FETCH_SUCCESS = 'rivers_fetch_success';
 export const API_RIVERS_FETCH = 'api_rivers_fetch';
+export const RIVER_DELETE = 'river_delete';

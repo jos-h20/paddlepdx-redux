@@ -47,7 +47,7 @@ componentWillReceiveProps(nextProps) {
       this.context.router.push('/all');
     } else if (nextProps.user) {
       this.context.router.push('/selected');
-    } 
+    }
 }
 
   render() {

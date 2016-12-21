@@ -5,16 +5,14 @@ import { riverSelect } from '../actions/index.js';
 
 
 class AllRiversList extends Component {
-  constructor(){
+  constructor() {
     super();
-
-    this.state = { isSelected: false};
   }
   renderList() {
     return this.props.rivers.map((river) => {
-      // if (river.isSelected) {
-      //   return<li></li>;
-      // }
+      if (river.isSelected) {
+        return<li></li>;
+      }
       return (
 
         <li
@@ -23,7 +21,7 @@ class AllRiversList extends Component {
           className="list-group-item">
           {river.name}
           <button
-            onClick={() => this.props.riverSelect(river)}
+            onClick={() => {this.props.riverSelect(river); this.props.rivers.isSelected = true; }}
             className="add btn btn-primary"
           >
              Add

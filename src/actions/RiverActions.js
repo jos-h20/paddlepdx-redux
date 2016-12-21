@@ -5,7 +5,8 @@ import axios from 'axios';
 import {
   RIVER_SELECT,
   RIVERS_FETCH_SUCCESS,
-  API_RIVERS_FETCH
+  API_RIVERS_FETCH,
+  RIVER_DELETE
 } from './types';
 
 // export function selectRiver(river) {
@@ -43,12 +44,15 @@ export const riversFetch = () => {
 
 
 
-export const riverDelete = ({ uid }) => {
+export const riverDelete = ({uid}) => {
   const { currentUser } = firebase.auth();
-
-  return () => {
+  console.log({uid});
+  return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/rivers/${uid}`)
       .remove()
+      .then(() => {
+        dispatch({ type: RIVER_DELETE});
+      });
   };
 };
 
