@@ -10,3 +10,4 @@ export const RIVER_SELECT = 'river_select';
 export const RIVERS_FETCH_SUCCESS = 'rivers_fetch_success';
 export const API_RIVERS_FETCH = 'api_rivers_fetch';
 export const RIVER_DELETE = 'river_delete';
+export const INITIAL_RIVER_LIST = 'initial_river_list';

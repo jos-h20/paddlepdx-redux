@@ -53,8 +53,15 @@ componentWillReceiveProps(nextProps) {
   render() {
 
     return (
+
       <div>
-        <form onSubmit={this.loginUser.bind(this)}>
+        <div className="jumbotron">
+          <h1>Paddle PDX</h1>
+        </div>
+        <div>
+
+        </div>
+        <form className="login" onSubmit={this.loginUser.bind(this)}>
             <input
             placeholder="test@test.com"
             value={this.props.email}
@@ -67,19 +74,10 @@ componentWillReceiveProps(nextProps) {
             onChange={this.onPasswordChange.bind(this)}
 
             />
-          <button type="submit">Submit</button>
+          <button type="submit" className="btn btn-primary">Submit</button>
         </form>
-        {this.props.error}
-      <div className="text-xs-right">
-        <Link to="/all" className="btn btn-primary">
-          All
-        </Link>
-      </div>
-      <div className="text-xs-right">
-        <Link to="/selected" className="btn btn-primary">
-          Selected
-        </Link>
-      </div>
+        <div className="error">{this.props.error}</div>
+
     </div>
     );
   }
@@ -95,3 +93,10 @@ const mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser, riversFetch })(LoginForm);
+
+// <Link className="links" to="/all">
+//   All
+// </Link>
+// <Link className="links" to="/selected">
+//   Selected
+// </Link>

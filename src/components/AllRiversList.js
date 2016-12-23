@@ -1,33 +1,56 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { riverSelect } from '../actions/index.js';
+import { riverSelect, riversFetch, fetchRiverList } from '../actions/index.js';
 
 
 class AllRiversList extends Component {
   constructor() {
     super();
+    this.state = { selRivers: null }
   }
+  componentWillMount() {
+    this.props.riversFetch();
+    this.props.fetchRiverList();
+
+  }
+  componentWillReceiveProps(nextProps) {
+    if (this.props !== nextProps) {
+    const selRivers = nextProps.selRivers;
+    this.setState({ selRivers });
+    }
+  }
+
+
   renderList() {
+    if (!this.props.rivers || (!this.state.selRivers)) {
+      return <h1>Loading</h1>
+    }
+    console.log(this.props, 'props on all rivers render list');
+
     return this.props.rivers.map((river) => {
-      if (river.isSelected) {
-        return<li></li>;
+      river.isHidden = false;
+      const filter = this.state.selRivers.forEach((selRiver) => {
+        if (selRiver.id === river.id) {
+          river.isHidden = true;
+        }
+      });
+
+      if (!river.isHidden) {
+        return (
+          <li
+            key={river.name}
+            className="list-group-item">
+            {river.name}
+            <button
+            onClick={() => {river.isHidden=true; this.props.riverSelect(river)}}
+              className="add btn btn-primary"
+            >
+               Add
+            </button>
+          </li>
+        );
       }
-      return (
-
-        <li
-          key={river.name}
-
-          className="list-group-item">
-          {river.name}
-          <button
-            onClick={() => {this.props.riverSelect(river); this.props.rivers.isSelected = true; }}
-            className="add btn btn-primary"
-          >
-             Add
-          </button>
-        </li>
-      );
     });
   }
 
@@ -36,7 +59,7 @@ class AllRiversList extends Component {
 
     return (
       <div>
-        <ul className="list-group col-sm-4">
+        <ul className="list-group col-sm-8">
           {this.renderList()}
         </ul>
         <div className="text-xs-right">
@@ -51,22 +74,14 @@ class AllRiversList extends Component {
 }
 
 function mapStateToProps(state) {
-  // Whatever is returned will show up as props
-  // inside of AllRiversList
+  const selRivers = _.map(state.selectedRivers, (val, uid) => {
+    return { ...val, uid}
+  });
   return {
-    rivers: state.rivers
+    rivers: state.rivers,
+    selRivers
+
   };
 }
 
-// // Anything returned from this function will end up as props
-// // on the AllRiversList container
-// function mapDispatchToProps(dispatch) {
-//   // Whenever selectRiver is called, the result shoudl be passed
-//   // to all of our reducers
-//   return bindActionCreators({ selectRiver: selectRiver }, dispatch);
-// }
-
-// Promote AllRiversList from a component to a container - it needs to know
-// about this new dispatch method, selectRiver. Make it available
-// as a prop.
-export default connect(mapStateToProps, { riverSelect })(AllRiversList);
+export default connect(mapStateToProps, { riverSelect, riversFetch, fetchRiverList })(AllRiversList);

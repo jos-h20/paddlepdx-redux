@@ -1,12 +1,14 @@
 import firebase from 'firebase';
 import axios from 'axios';
+import portlandRivers from '../rivers';
 
 
 import {
   RIVER_SELECT,
   RIVERS_FETCH_SUCCESS,
   API_RIVERS_FETCH,
-  RIVER_DELETE
+  RIVER_DELETE,
+  INITIAL_RIVER_LIST
 } from './types';
 
 // export function selectRiver(river) {
@@ -18,7 +20,11 @@ import {
 //   };
 // }
 
-
+export const fetchRiverList = () => {
+  return (dispatch) => {
+    dispatch({ type: INITIAL_RIVER_LIST, payload: portlandRivers })
+  }
+}
 
 export const riverSelect = (river) => {
   const { currentUser } = firebase.auth();

@@ -87,8 +87,8 @@ class SelectedRiversList extends Component {
 
 
 
-     return this.state.rivers.map((river) => {
-       const cfss = apiRiverArray.forEach((cfsRiver) => {
+     return this.props.selRivers.map((river) => {
+       const filter = apiRiverArray.forEach((cfsRiver) => {
                if(river.id === cfsRiver.id) {
                   river.cfs = cfsRiver.cfs;
                   river.time = cfsRiver.time;
@@ -97,7 +97,6 @@ class SelectedRiversList extends Component {
 
       return (
         <li
-
           key={river.name}
           className="list-group-item">
           <h5>{river.name}</h5>
@@ -105,7 +104,7 @@ class SelectedRiversList extends Component {
 
           <button
             onClick={() => this.props.riverDelete(river)}
-            className="add btn btn-primary"
+            className="delete btn btn-default"
           >
             Delete
           </button>
@@ -128,7 +127,7 @@ class SelectedRiversList extends Component {
     return (
 
       <div>
-        <ul className="list-group col-sm-4">
+        <ul className="list-group">
           {this.renderList()}
         </ul>
         <div className="text-xs-right">
