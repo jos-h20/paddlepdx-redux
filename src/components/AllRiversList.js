@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import { Link } from 'react-router';
 import { riverSelect, riversFetch, fetchRiverList } from '../actions/index.js';
 
@@ -7,7 +8,7 @@ import { riverSelect, riversFetch, fetchRiverList } from '../actions/index.js';
 class AllRiversList extends Component {
   constructor() {
     super();
-    this.state = { selRivers: null }
+    this.state = { selRivers: [] }
   }
   componentWillMount() {
     this.props.riversFetch();
@@ -21,15 +22,38 @@ class AllRiversList extends Component {
     }
   }
 
+  renderButton() {
+    const rivers = this.state.selRivers;
+
+    if (this.state.selRivers) {
+      console.log(rivers.length, 'render button');
+      if (rivers.length !== 0) {
+      return (
+        <div className="text-xs-right">
+          <Link to="/selected" className="btn btn-primary">
+            Selected
+          </Link>
+        </div>
+      );
+    }
+  }
+    return (
+      <div></div>
+    );
+  }
 
   renderList() {
-    if (!this.props.rivers || (!this.state.selRivers)) {
+    if (!this.props.rivers) {
       return <h1>Loading</h1>
     }
     console.log(this.props, 'props on all rivers render list');
 
     return this.props.rivers.map((river) => {
       river.isHidden = false;
+      if (!this.state.selRivers) {
+        return <h2>Loading</h2>
+      }
+
       const filter = this.state.selRivers.forEach((selRiver) => {
         if (selRiver.id === river.id) {
           river.isHidden = true;
@@ -43,7 +67,7 @@ class AllRiversList extends Component {
             className="list-group-item">
             {river.name}
             <button
-            onClick={() => {river.isHidden=true; this.props.riverSelect(river)}}
+              onClick={() => {river.isHidden=true; this.props.riverSelect(river)}}
               className="add btn btn-primary"
             >
                Add
@@ -56,17 +80,14 @@ class AllRiversList extends Component {
 
   render() {
     console.log(this.props, 'all rivers list')
+    console.log(this.state.selRivers, 'sel rivers state on render')
 
     return (
       <div>
         <ul className="list-group col-sm-8">
           {this.renderList()}
         </ul>
-        <div className="text-xs-right">
-          <Link to="/selected" className="btn btn-primary">
-            Selected
-          </Link>
-        </div>
+        {this.renderButton()}
       </div>
 
     )

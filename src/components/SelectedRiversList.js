@@ -37,7 +37,7 @@ class SelectedRiversList extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    if(this.state.riverIds !== nextState.riverIds) {
+    if(this.state.riverIds !== nextState.riverIds && nextState.riverIds !== '') {
       this.props.fetchApiRivers(nextState.riverIds);
     }
   }

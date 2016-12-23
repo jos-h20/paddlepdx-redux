@@ -11,7 +11,7 @@ class LoginForm extends Component {
   }
   static contextTypes = {
   router: PropTypes.object
-};
+  };
 
   onEmailChange(event) {
     this.props.emailChanged(event.target.value);
@@ -41,13 +41,17 @@ class LoginForm extends Component {
   //   );
   // }
 
+componentWillUpdate(nextProps) {
+  console.log(nextProps, 'com will update login')
+}
+
 componentWillReceiveProps(nextProps) {
   console.log(nextProps, 'next props log in');
-    if (nextProps.newUser) {
-      this.context.router.push('/all');
-    } else if (nextProps.user) {
-      this.context.router.push('/selected');
-    }
+    // if (nextProps.user && nextProps.selRivers) {
+    //   this.context.router.push('/selected');
+    // } else if (nextProps.newUser || nextProps.user) {
+    //   this.context.router.push('/all');
+    // }
 }
 
   render() {
@@ -59,7 +63,12 @@ componentWillReceiveProps(nextProps) {
           <h1>Paddle PDX</h1>
         </div>
         <div>
-
+          <Link className="links" to="/all">
+            All
+          </Link>
+          <Link className="links" to="/selected">
+            Selected
+          </Link>
         </div>
         <form className="login" onSubmit={this.loginUser.bind(this)}>
             <input
