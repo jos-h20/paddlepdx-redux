@@ -38,7 +38,7 @@ class AllRiversList extends Component {
     }
   }
     return (
-      <div></div>
+      <div><h2>Add some rivers</h2></div>
     );
   }
 

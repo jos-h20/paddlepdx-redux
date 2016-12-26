@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import { Link } from 'react-router';
 import { emailChanged, passwordChanged, loginUser, riversFetch } from '../actions';
 
@@ -8,6 +9,7 @@ import { emailChanged, passwordChanged, loginUser, riversFetch } from '../action
 class LoginForm extends Component {
   constructor(props) {
     super(props);
+    this.state = { selRivers: null }
   }
   static contextTypes = {
   router: PropTypes.object
@@ -29,6 +31,12 @@ class LoginForm extends Component {
 
   }
 
+  // componentWillMount() {
+  //   if (this.props.user) {
+  //     this.props.riversFetch();
+  //   }
+  // }
+
 
   // renderButton() {
   //   if (this.props.loading) {
@@ -40,18 +48,19 @@ class LoginForm extends Component {
   //     </button>
   //   );
   // }
-
-componentWillUpdate(nextProps) {
-  console.log(nextProps, 'com will update login')
-}
+// 
+// componentWillUpdate(nextProps) {
+//   console.log(nextProps, 'com will update login');
+//   this.props.riversFetch();
+// }
 
 componentWillReceiveProps(nextProps) {
   console.log(nextProps, 'next props log in');
-    // if (nextProps.user && nextProps.selRivers) {
-    //   this.context.router.push('/selected');
-    // } else if (nextProps.newUser || nextProps.user) {
-    //   this.context.router.push('/all');
-    // }
+    if (nextProps.newUser) {
+      this.context.router.push('/all');
+    } else if (nextProps.user) {
+      this.context.router.push('/selected');
+    }
 }
 
   render() {
@@ -96,7 +105,9 @@ componentWillReceiveProps(nextProps) {
 
 const mapStateToProps = (state) => {
   const { email, password, error, loading, newUser, user } = state.auth;
-  const { selRivers } = state.selectedRivers;
+  const selRivers = _.map(state.selectedRivers, (val, uid) => {
+    return { ...val, uid}
+  });
   return { email, password, error, loading, user, selRivers, newUser };
 };
 

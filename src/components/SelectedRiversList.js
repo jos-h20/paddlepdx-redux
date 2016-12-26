@@ -12,7 +12,7 @@ import { riversFetch, riverDelete, fetchApiRivers } from '../actions';
 class SelectedRiversList extends Component {
   constructor() {
     super();
-    this.state = { rivers: null, riverIds: '' };
+    this.state = { rivers: [], riverIds: '' };
     }
 
   componentWillMount() {
@@ -72,9 +72,10 @@ class SelectedRiversList extends Component {
   renderList() {
     const cfs = null;
     const apiRiverArray = [];
-
     if (!this.state.rivers || (!this.props.apiRivers)) {
       return <h1>Loading</h1>
+    } else if (this.state.rivers.length === 0) {
+      return <h3>Click the link to select some rivers</h3>
     }
 
     const apiRivers = this.props.apiRivers.map((apiRiver) => {
