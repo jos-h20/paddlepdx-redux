@@ -39,5 +39,29 @@ module.exports = [
     time: '',
     desc: 'Cool river',
   },
+  {
+    name: 'North Santiam (Boulder)',
+    id: '14178000',
+    isHidden: false,
+    cfs: '',
+    time: '',
+    desc: 'Cool river',
+  },
+  {
+    name: 'East Fork of the Lewis (Heissen)',
+    id: '14222500',
+    isHidden: false,
+    cfs: '',
+    time: '',
+    desc: 'Cool river',
+  },
+  {
+    name: 'Canyon Creek',
+    id: '14219000',
+    isHidden: false,
+    cfs: '',
+    time: '',
+    desc: 'Cool river',
+  },
 
 ];

@@ -74,8 +74,6 @@ class SelectedRiversList extends Component {
     const apiRiverArray = [];
     if (!this.state.rivers || (!this.props.apiRivers)) {
       return <h1>Loading</h1>
-    } else if (this.state.rivers.length === 0) {
-      return <h3>Click the link to select some rivers</h3>
     }
 
     const apiRivers = this.props.apiRivers.map((apiRiver) => {
@@ -100,8 +98,8 @@ class SelectedRiversList extends Component {
         <li
           key={river.name}
           className="list-group-item">
-          <h5>{river.name}</h5>
-          <h5>CFS: {river.cfs} at {river.time}</h5>
+          <h4>{river.name}</h4>
+          <h4>CFS: {river.cfs} at {river.time}</h4>
 
           <button
             onClick={() => this.props.riverDelete(river)}
@@ -114,7 +112,11 @@ class SelectedRiversList extends Component {
     });
 
   }
-
+  userMessage() {
+    if (this.state.rivers.length === 0) {
+      return <h3>Click the link to select some rivers</h3>
+    }
+  }
 
 
   render() {
@@ -131,9 +133,10 @@ class SelectedRiversList extends Component {
         <ul className="list-group">
           {this.renderList()}
         </ul>
+        <div>{this.userMessage()}</div>
         <div className="text-xs-right">
           <Link to="/all" className="btn btn-primary">
-            All
+            River List
           </Link>
         </div>
       </div>
@@ -142,7 +145,6 @@ class SelectedRiversList extends Component {
 }
 
 const mapStateToProps = state => {
-  // const selRivers = state.selectedRivers;
   const selRivers = _.map(state.selectedRivers, (val, uid) => {
     return { ...val, uid}
   });

@@ -31,7 +31,7 @@ class AllRiversList extends Component {
       return (
         <div className="text-xs-right">
           <Link to="/selected" className="btn btn-primary">
-            Selected
+            My Rivers
           </Link>
         </div>
       );
@@ -65,7 +65,7 @@ class AllRiversList extends Component {
           <li
             key={river.name}
             className="list-group-item">
-            {river.name}
+            <h4>{river.name}</h4>
             <button
               onClick={() => {river.isHidden=true; this.props.riverSelect(river)}}
               className="add btn btn-primary"
