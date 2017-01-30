@@ -29,10 +29,12 @@ class AllRiversList extends Component {
       console.log(rivers.length, 'render button');
       if (rivers.length !== 0) {
       return (
-        <div className="text-xs-right">
-          <Link to="/selected" className="btn btn-primary">
+        <div className="row">
+        <div className="col-xs-1"></div>
+          <Link to="/selected" className="rivers-button col-xs-10">
             My Rivers
           </Link>
+        <div className="col-xs-1"></div>
         </div>
       );
     }
@@ -65,13 +67,15 @@ class AllRiversList extends Component {
           <li
             key={river.name}
             className="list-group-item">
-            <h4>{river.name}</h4>
+            <div className="all-river">
+                {river.name}
             <button
               onClick={() => {river.isHidden=true; this.props.riverSelect(river)}}
-              className="add btn btn-primary"
+              className="add btn btn-default"
             >
                Add
             </button>
+            </div>
           </li>
         );
       }
@@ -84,7 +88,7 @@ class AllRiversList extends Component {
 
     return (
       <div>
-        <ul className="list-group col-sm-8">
+        <ul className="list-group">
           {this.renderList()}
         </ul>
         {this.renderButton()}

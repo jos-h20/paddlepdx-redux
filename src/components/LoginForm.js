@@ -48,7 +48,7 @@ class LoginForm extends Component {
   //     </button>
   //   );
   // }
-// 
+//
 // componentWillUpdate(nextProps) {
 //   console.log(nextProps, 'com will update login');
 //   this.props.riversFetch();
@@ -71,31 +71,38 @@ componentWillReceiveProps(nextProps) {
         <div className="jumbotron">
           <h1>Paddle PDX</h1>
         </div>
-        <div>
-          <Link className="links" to="/all">
-            All
-          </Link>
-          <Link className="links" to="/selected">
-            Selected
-          </Link>
-        </div>
+        <div className="row">
+        <div className="login-box">
+        <div className="header">Log In</div>
+
         <form className="login" onSubmit={this.loginUser.bind(this)}>
-            <input
+            <div className="col-xs-3">Email:</div>
+            <div className="col-xs-9">
+            <input className="placeholder"
             placeholder="test@test.com"
             value={this.props.email}
             onChange={this.onEmailChange.bind(this)}
 
             />
-            <input
+        </div>
+        <div className="col-xs-3">Password:</div>
+        <div className="col-xs-9">
+            <input className="placeholder"
             placeholder="password"
             value={this.props.password}
             onChange={this.onPasswordChange.bind(this)}
 
             />
-          <button type="submit" className="btn btn-primary">Submit</button>
+        </div>
+
+
+        <div className="col-xs-1"></div>
+          <button className="submit-button col-xs-10" type="submit">Submit</button>
+          <div className="col-xs-1"></div>
         </form>
         <div className="error">{this.props.error}</div>
-
+        </div>
+        </div>
     </div>
     );
   }

@@ -95,19 +95,24 @@ class SelectedRiversList extends Component {
              });
 
       return (
+
         <li
           key={river.name}
           className="list-group-item">
-          <h4>{river.name}</h4>
-          <h4>CFS: {river.cfs} at {river.time}</h4>
-
+          <div className="sel-river row">
+          <div className="col-xs-5">{river.name}</div>
+          <div className="col-xs-5">CFS: <span className="cfs">{river.cfs}</span> at {river.time}</div>
+          <div className="col-xs-2">
           <button
             onClick={() => this.props.riverDelete(river)}
             className="delete btn btn-default"
           >
             Delete
           </button>
+        </div>
+        </div>
         </li>
+
       );
     });
 
@@ -130,14 +135,16 @@ class SelectedRiversList extends Component {
     return (
 
       <div>
-        <ul className="list-group">
+        <ul className="list-group sel-rivers-container">
           {this.renderList()}
         </ul>
         <div>{this.userMessage()}</div>
-        <div className="text-xs-right">
-          <Link to="/all" className="btn btn-primary">
+        <div className="row">
+        <div className="col-xs-1"></div>
+          <Link to="/all" className="rivers-button col-xs-10">
             River List
           </Link>
+        <div className="col-xs-1"></div>
         </div>
       </div>
     );
