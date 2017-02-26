@@ -20,6 +20,7 @@ import {
 //   };
 // }
 
+
 export const fetchRiverList = () => {
   return (dispatch) => {
     dispatch({ type: INITIAL_RIVER_LIST, payload: portlandRivers })
@@ -27,10 +28,10 @@ export const fetchRiverList = () => {
 }
 
 export const riverSelect = (river) => {
-  const { currentUser } = firebase.auth();
+  let uid = firebase.auth().currentUser.uid;
 
   return (dispatch) => {
-    firebase.database().ref(`/users/${currentUser.uid}/rivers`)
+    firebase.database().ref(`/users/${uid}/rivers`)
       .push(river)
       .then(() => {
         dispatch({ type: RIVER_SELECT });
@@ -38,10 +39,28 @@ export const riverSelect = (river) => {
   };
 };
 
+
+// const userUid = firebase.auth().currentUser.uid;
+// const fuid = 'hey';
+// for (let key in localStorage) {
+//     if (key.startsWith("firebase:authUser:")) {
+//       const value = JSON.parse(localStorage.getItem(key));
+//       console.log(value.uid);
+//       const fuid = value.uid;
+// //       if (value.uid) {
+// //       userUid = value.uid;
+// //   }
+//   }
+//   // console.log(fuid);
+// }
+// console.log(fuid, 'user Uid');
+
 export const riversFetch = () => {
-  const { currentUser } = firebase.auth();
+//
+// console.log(firebase.auth().currentUser.uid, 'user id in riv fetch');
+let uid = firebase.auth().currentUser.uid;
   return (dispatch) => {
-    firebase.database().ref(`/users/${currentUser.uid}/rivers`)
+    firebase.database().ref(`/users/${uid}/rivers`)
       .on('value', snapshot => {
         dispatch({ type: RIVERS_FETCH_SUCCESS, payload: snapshot.val() });
       });

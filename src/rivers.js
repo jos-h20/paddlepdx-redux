@@ -5,6 +5,8 @@ module.exports = [
     isHidden: false,
     cfs: '',
     time: '',
+    low: '800',
+    high: '2000',
     desc: 'Cool river',
   },
   {
@@ -13,6 +15,8 @@ module.exports = [
     isHidden: false,
     cfs: '',
     time: '',
+    low: '800',
+    high: '2000',
     desc: 'Cool river'
   },
   {
@@ -21,6 +25,8 @@ module.exports = [
     isHidden: false,
     cfs: '',
     time: '',
+    low: '800',
+    high: '2000',
     desc: 'Cool river',
   },
   {
@@ -29,6 +35,8 @@ module.exports = [
     isHidden: false,
     cfs: '',
     time: '',
+    low: '800',
+    high: '2000',
     desc: 'Cool river',
   },
   {
@@ -37,6 +45,8 @@ module.exports = [
     isHidden: false,
     cfs: '',
     time: '',
+    low: '800',
+    high: '2000',
     desc: 'Cool river',
   },
   {
@@ -45,6 +55,8 @@ module.exports = [
     isHidden: false,
     cfs: '',
     time: '',
+    low: '800',
+    high: '2000',
     desc: 'Cool river',
   },
   {
@@ -53,6 +65,8 @@ module.exports = [
     isHidden: false,
     cfs: '',
     time: '',
+    low: '800',
+    high: '2000',
     desc: 'Cool river',
   },
   {
@@ -61,6 +75,8 @@ module.exports = [
     isHidden: false,
     cfs: '',
     time: '',
+    low: '800',
+    high: '2000',
     desc: 'Cool river',
   },
 

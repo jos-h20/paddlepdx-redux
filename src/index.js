@@ -9,11 +9,23 @@ import routes from './routes';
 import App from './components/app';
 import reducers from './reducers';
 import Async from './Async';
+import Root from './root';
+import { verifyAuth } from './AuthSync';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxThunk, Async)(createStore);
 
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <Router history={browserHistory} routes={routes}/>
-  </Provider>
-  , document.querySelector('.main'));
+const store = createStoreWithMiddleware(reducers);
+
+const rootElement = document.querySelector('.main');
+
+
+function render(Root) {
+  ReactDOM.render(
+      <Root history={browserHistory} store={store} />,
+    rootElement
+  );
+}
+
+verifyAuth(store.dispatch)
+  .then(() => render(Root))
+  .catch(error => console.error(error)); //

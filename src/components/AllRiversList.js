@@ -40,7 +40,7 @@ class AllRiversList extends Component {
     }
   }
     return (
-      <div><h2>Add some rivers</h2></div>
+      <div className="message">Click above to add some rivers.</div>
     );
   }
 
@@ -67,14 +67,16 @@ class AllRiversList extends Component {
           <li
             key={river.name}
             className="list-group-item">
-            <div className="all-river">
-                {river.name}
-            <button
+            <div className="all-river row">
+            <div className="col-xs-10">
+                <div className="name">{river.name}</div>
+            </div>
+            <div
               onClick={() => {river.isHidden=true; this.props.riverSelect(river)}}
-              className="add btn btn-default"
+              className=" col-xs-2 add"
             >
-               Add
-            </button>
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke="none" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>
+            </div>
             </div>
           </li>
         );
@@ -104,7 +106,8 @@ function mapStateToProps(state) {
   });
   return {
     rivers: state.rivers,
-    selRivers
+    selRivers,
+    user: state.auth.user
 
   };
 }

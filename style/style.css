@@ -1,15 +1,17 @@
 .add {
   float: right;
-  margin-top: 20px;
-  height: 30px;
+  color: #01366A;
 }
 
 .all-river {
-    font-size: 50px;
-    height: 90px;
+    font-size: 20px;
+    height: 60px;
     color: white;
     margin: 0;
-    padding-left: 5px;
+}
+
+.api {
+    padding-left: 10px;
 }
 
 body {
@@ -18,79 +20,141 @@ body {
     padding: 0;
 }
 
+button {
+    border: 0;
+}
+
 .cfs {
-    font-size: 47px;
+    font-size: 25px;
     font-weight: bold;
 }
 
 .delete {
   float: right;
-  margin-top: 20px;
+  color: #01366A;
+  background-color: #3C6FA6;
   height: 30px;
+  width: 30px;
+  font-size: 20px;
+  border-radius: 5px;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .error {
   color: red;
   font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  height: 40px;
+  min-width: 200px;
 }
 
 .header {
     text-align: center;
-    font-size: 70px;
-    margin-bottom: 40px;
+    font-size: 50px;
 }
 
-.login {
-  font-size: 50px;
-  height: 50px;
-  padding-left: 20px;
-  padding-right: 10px;
+
+.jumbotron {
+    color: #3C6FA6;
+    font-size: 60px;
+    background: linear-gradient(to top, #01366A, #3C6FA6);
+    padding-top: 28px;
+    margin-bottom: 0;
+    height: 300px;
+    background: url(/kayak.jpg) no-repeat center / cover;
+    width: 100%;
+}
+
+.jumbo-title {
+    padding-left: 50px;
+    text-shadow: 1px 1px #BAD8CE;
+    padding-right: 250px;
+}
+
+/*.login {
+  font-size: 25px;
+  height: 40px;
+  margin: 50px 10px 100px;
+}*/
+
+.list-group {
+    ul {
+        margin-right: 0;
+        margin-left: 0;
+    }
 }
 
 .list-group-item {
     background: linear-gradient(to top, #01366A, #3C6FA6);
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
     border: 0;
 }
 
-.login-box {
-    background-color: #3C6FA6;
-    padding-bottom: 350px;
+.btn {
+    padding: 0;
 }
 
-.jumbotron {
-    text-align: center;
+.login-box {
     background: linear-gradient(to top, #01366A, #3C6FA6);
+    padding-bottom: 100px;
+    padding-top: 50px;
+}
+
+.message {
+    font-size: 30px;
+    padding-left: 20px;
+    margin-top: 30px;
 }
 
 .placeholder {
-    padding-left: 50px;
-    color: black;
+    color: #01366A;
     border-radius: 10px;
+    width: 100%;
+    text-align: center;
 }
 
 .rivers-button {
     border-radius: 10px;
-    margin-top: 100px;
+    margin-top: 50px;
     background-color: #3C6FA6;
     color: white;
-    height: 120px;
+    height: 80px;
     text-align: center;
-    font-size: 50px;
-    padding-top: 20px;
+    font-size: 40px;
+    padding-top: 10px;
+    margin-bottom: 50px;
 }
 
 .sel-river {
-    font-size: 40px;
-    height: 130px;
+    font-size: 20px;
+    height: 125px;
     color: white;
     margin: 0;
+    padding-top: 10px;
+
+    .name {
+        padding-right: 0;
+    }
+
 }
 
 .submit-button {
     border-radius: 10px;
-    min-width: 200px;
-    margin-top: 50px;
-    height: 100px;
+    min-width: 100px;
+    /*margin-top: 50px;*/
+    font-size: 40px;
+    height: 80px;
     background-color: #3C6FA6;
     padding-top: 10px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+svg {
+    fill: currentColor;
 }
