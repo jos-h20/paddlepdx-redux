@@ -95,8 +95,6 @@ componentWillReceiveProps(nextProps) {
   }
 }
 
-
-
 const mapStateToProps = (state) => {
   const {  authenticated, error, email, password,loading, newUser, user, isUserSignedIn, isInProgress, hasError, errorMessage, uid } = state.auth;
   const selRivers = _.map(state.selectedRivers, (val, uid) => {

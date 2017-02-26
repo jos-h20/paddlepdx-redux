@@ -135,7 +135,7 @@ class SelectedRiversList extends Component {
                     <div className="sel-river row">
                         <div className="col-xs-5 name">{river.name}</div>
                         <div className="col-xs-5 api">CFS:
-                            <span className="cfs">{river.cfs}</span><br/>at {river.time}</div>
+                            <span className="cfs"> {river.cfs}</span><br/>at {river.time}</div>
                         <div className="col-xs-2">
                             <button onClick={() => this.props.riverDelete(river)} className="delete btn btn-default">
                                 X

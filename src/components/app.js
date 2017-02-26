@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
+import { connect } from 'react-redux';
+import { paths } from '../routes';
 import AllRiversList from './AllRiversList';
 import SelectedRiversList from './SelectedRiversList';
 import LoginForm from './LoginForm';
 
 class App extends Component {
 
-  componentWillMount() {
-  //   const config = {
-  //     apiKey: "AIzaSyCJxCW7ht2UzdP8d1JjYMLDQbkof-Jv5Y0",
-  //     authDomain: "paddle-redux.firebaseapp.com",
-  //     databaseURL: "https://paddle-redux.firebaseio.com",
-  //     storageBucket: "paddle-redux.appspot.com",
-  //     messagingSenderId: "261772544888"
-  // };
-  // firebase.initializeApp(config);
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   const { router } = this.context;
+  //
+  //   if (authenticated && !nextProps.authenticated) {
+  //     router.replace(paths.SIGN_IN);
+  //   }
+  //   else if (!authenticated && nextProps.authenticated) {
+  //     router.replace(paths.TASKS);
+  //   }
+  // }
 
   render() {
     return (
@@ -27,4 +29,8 @@ class App extends Component {
 }
 
 
-export default App;
+function mapStateToProps(state) {
+  return { authenticated: state.auth.authenticated, user: state.auth.user};
+}
+
+export default connect(mapStateToProps)(App);
