@@ -56,9 +56,9 @@ export const riverSelect = (river) => {
 // console.log(fuid, 'user Uid');
 
 export const riversFetch = () => {
-//
-// console.log(firebase.auth().currentUser.uid, 'user id in riv fetch');
-let uid = firebase.auth().currentUser.uid;
+  //
+  // console.log(firebase.auth().currentUser.uid, 'user id in riv fetch');
+  let uid = firebase.auth().currentUser.uid;
   return (dispatch) => {
     firebase.database().ref(`/users/${uid}/rivers`)
       .on('value', snapshot => {
@@ -88,10 +88,7 @@ const PARAM_URL = `&parameterCd=00060&siteStatus=all`;
 
 
 export const fetchApiRivers = (riverIds) => {
-
   const url = `${ROOT_URL}&sites=${riverIds}${PARAM_URL}`;
-
-     const request = axios.get(url)
-        return {type: API_RIVERS_FETCH, payload: request};
-
+  const request = axios.get(url)
+  return {type: API_RIVERS_FETCH, payload: request};
 }

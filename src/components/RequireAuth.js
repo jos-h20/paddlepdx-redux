@@ -6,25 +6,30 @@ import { browserHistory } from 'react-router';
 export default function(WrappedComponent) {
   class Auth extends React.Component {
 
+    static contextTypes = {
+      router: React.PropTypes.object,
+    }
+
     componentWillMount() {
-        if (!this.props.user) {
+      if (!this.props.user) {
         let hasLocalStorageUser = false;
 
         for (let key in localStorage) {
           if (key.startsWith("firebase:authUser:")) {
             hasLocalStorageUser = true;
-
           }
         }
 
+        console.log(hasLocalStorageUser)
         if (!hasLocalStorageUser) {
+          console.log('pushing...')
           browserHistory.push('/login');
         }
-    }
+      }
     }
 
     componentWillReceiveProps(nextProps) {
-      // 
+    //
     //     console.log(nextProps, 'yo next props');
     //   if (authenticated && !nextProps.authenticated) {
     //       let hasLocalStorageUser = false;
@@ -44,7 +49,7 @@ export default function(WrappedComponent) {
     }
 
     render() {
-        console.log(this.props, 'whatup')
+      console.log(this.props, 'whatup')
       return <WrappedComponent {...this.props} />
     }
   }
