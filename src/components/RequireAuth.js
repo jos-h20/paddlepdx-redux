@@ -24,23 +24,23 @@ export default function(WrappedComponent) {
     }
 
     componentWillReceiveProps(nextProps) {
-
-        console.log(nextProps, 'yo next props');
-      if (authenticated && !nextProps.authenticated) {
-          let hasLocalStorageUser = false;
-
-          for (let key in localStorage) {
-            if (key.startsWith("firebase:authUser:")) {
-              hasLocalStorageUser = true;
-
-            }
-          }
-
-          if (!hasLocalStorageUser) {
-            browserHistory.push('/login');
-          }
-
-      }
+      // 
+    //     console.log(nextProps, 'yo next props');
+    //   if (authenticated && !nextProps.authenticated) {
+    //       let hasLocalStorageUser = false;
+    //
+    //       for (let key in localStorage) {
+    //         if (key.startsWith("firebase:authUser:")) {
+    //           hasLocalStorageUser = true;
+    //
+    //         }
+    //       }
+    //
+    //       if (!hasLocalStorageUser) {
+    //         browserHistory.push('/login');
+    //       }
+    //
+    //   }
     }
 
     render() {

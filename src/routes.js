@@ -5,13 +5,13 @@ import App from './components/app';
 import LoginForm from './components/LoginForm';
 import AllRiversList from './components/AllRiversList';
 import SelectedRiversList from './components/SelectedRiversList';
-// import RequireAuth from './components/RequireAuth';
+import RequireAuth from './components/RequireAuth';
 
 export default (
   <Route path="/" component={App}>
-    <IndexRoute component={LoginForm} />
+    <IndexRoute component={RequireAuth(SelectedRiversList)} />
     <Route path="all" component={AllRiversList} />
-    <Route path="selected" component={SelectedRiversList} />
+    <Route path="login" component={LoginForm} />
   </Route>
 );
 // export const paths = {
