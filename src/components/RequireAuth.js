@@ -6,23 +6,28 @@ import { browserHistory } from 'react-router';
 export default function(WrappedComponent) {
   class Auth extends React.Component {
 
-    static contextTypes = {
-      router: React.PropTypes.object,
+    constructor(...props) {
+      super(...props);
+
+      this.state = { hasLocalStorageUser: false };
     }
 
     componentWillMount() {
       if (!this.props.user) {
+
+         // setState() is not synchronous, so we need still another variable to
+         // keep track of whether we've found a user in localStorage
         let hasLocalStorageUser = false;
 
         for (let key in localStorage) {
           if (key.startsWith("firebase:authUser:")) {
             hasLocalStorageUser = true;
+            this.setState({ hasLocalStorageUser: true });
           }
         }
 
-        console.log(hasLocalStorageUser)
         if (!hasLocalStorageUser) {
-          console.log('pushing...')
+          this.setState({ hasLocalStorageUser: false });
           browserHistory.push('/login');
         }
       }
@@ -49,8 +54,9 @@ export default function(WrappedComponent) {
     }
 
     render() {
-      console.log(this.props, 'whatup')
-      return <WrappedComponent {...this.props} />
+      return this.state.hasLocalStorageUser
+        ? <WrappedComponent {...this.props} />
+        : <div />
     }
   }
 
