@@ -21,7 +21,7 @@ const rootElement = document.querySelector('.main');
 
 function render(Root) {
   ReactDOM.render(
-      <Root history={browserHistory} store={store} />,
+    <Root history={browserHistory} store={store} />,
     rootElement
   );
 }
