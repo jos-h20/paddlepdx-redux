@@ -77,7 +77,7 @@ export function signIn() {
         dispatch(
           authUser()
         );
-        browserHistory.push('/');
+        browserHistory.push('/all');
       })
       .catch((error) => {
         dispatch(signInError(error.message))
@@ -141,7 +141,7 @@ export function authUser(user) {
 }
 
 export function signOutUser() {
-  browserHistory.push('/');
+  browserHistory.push('/login');
 
   return {
     type: SIGN_OUT_USER

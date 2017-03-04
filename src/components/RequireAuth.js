@@ -28,7 +28,6 @@ export default function(WrappedComponent) {
         }
 
         if (!hasLocalStorageUser) {
-          this.setState({ hasLocalStorageUser: false });
           browserHistory.push('/login');
         }
       }
@@ -36,7 +35,7 @@ export default function(WrappedComponent) {
 
 
     render() {
-      return this.props.user
+      return this.state.hasLocalStorageUser || this.props.user
         ? <WrappedComponent {...this.props} />
         : <div />
     }
