@@ -56,20 +56,8 @@ class LoginForm extends Component {
   //     </button>
   //   );
   // }
-//
-// componentWillUpdate(nextProps) {
-//   console.log(nextProps, 'com will update login');
-//   this.props.riversFetch();
-// }
 
-componentWillReceiveProps(nextProps) {
-  // console.log(nextProps, 'next props log in');
-  //   if (nextProps.newUser) {
-  //     this.context.router.push('/all');
-  // } else if (nextProps.uid) {
-  //     this.context.router.push('/selected');
-  //   }
-}
+
 
   render() {
 

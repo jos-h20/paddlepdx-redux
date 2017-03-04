@@ -8,17 +8,6 @@ import LoginForm from './LoginForm';
 
 class App extends Component {
 
-  // componentWillReceiveProps(nextProps) {
-  //   const { router } = this.context;
-  //
-  //   if (authenticated && !nextProps.authenticated) {
-  //     router.replace(paths.SIGN_IN);
-  //   }
-  //   else if (!authenticated && nextProps.authenticated) {
-  //     router.replace(paths.TASKS);
-  //   }
-  // }
-
   render() {
     return (
       <div>

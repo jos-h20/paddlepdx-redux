@@ -77,7 +77,7 @@ export function signIn() {
         dispatch(
           authUser()
         );
-        browserHistory.push('/selected');
+        browserHistory.push('/');
       })
       .catch((error) => {
         dispatch(signInError(error.message))

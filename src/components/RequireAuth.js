@@ -13,7 +13,7 @@ export default function(WrappedComponent) {
     }
 
     componentWillMount() {
-
+        console.log(this.props.user, "props user")
       if (!this.props.user) {
 
          // setState() is not synchronous, so we need still another variable to
@@ -34,28 +34,9 @@ export default function(WrappedComponent) {
       }
     }
 
-    componentWillReceiveProps(nextProps) {
-    //
-    //     console.log(nextProps, 'yo next props');
-    //   if (authenticated && !nextProps.authenticated) {
-    //       let hasLocalStorageUser = false;
-    //
-    //       for (let key in localStorage) {
-    //         if (key.startsWith("firebase:authUser:")) {
-    //           hasLocalStorageUser = true;
-    //
-    //         }
-    //       }
-    //
-    //       if (!hasLocalStorageUser) {
-    //         browserHistory.push('/login');
-    //       }
-    //
-    //   }
-    }
 
     render() {
-      return this.state.hasLocalStorageUser
+      return this.props.user
         ? <WrappedComponent {...this.props} />
         : <div />
     }

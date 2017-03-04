@@ -53,8 +53,6 @@ class SelectedRiversList extends Component {
       //console.log(this.state.num)
       hasAuth = true;
     }
-    // if (this.props.authenticated && !hasAuth) {
-    //     hasAuth = true;
 
     if (this.state.riverIds !== nextState.riverIds && nextState.riverIds !== null) {
       this.props.fetchApiRivers(nextState.riverIds);
@@ -149,10 +147,6 @@ class SelectedRiversList extends Component {
   }
 
   render() {
-    // console.log(this.props, 'props on selected at render');
-    // console.log(this.state.rivers, 'this state rivers at render');
-    // console.log(this.state.riverIds, 'this state API riverIDs at render');
-    // console.log(this.state.num, 'this state num at render');
 
     return (
 

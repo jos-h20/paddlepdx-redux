@@ -31,7 +31,7 @@ class AllRiversList extends Component {
         return (
           <div className="row">
           <div className="col-xs-1"></div>
-            <Link to="/selected" className="rivers-button col-xs-10">
+            <Link to="/" className="rivers-button col-xs-10">
               My Rivers
             </Link>
           <div className="col-xs-1"></div>
@@ -73,7 +73,7 @@ class AllRiversList extends Component {
             </div>
             <div
               onClick={() => {river.isHidden=true; this.props.riverSelect(river)}}
-              className=" col-xs-2 add"
+              className=" col-xs-2 add text-right"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke="none" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>
             </div>
@@ -85,8 +85,6 @@ class AllRiversList extends Component {
   }
 
   render() {
-    console.log(this.props, 'all rivers list')
-    console.log(this.state.selRivers, 'sel rivers state on render')
 
     return (
       <div>
