@@ -7,41 +7,26 @@ export default function(WrappedComponent) {
   class Auth extends React.Component {
 
     componentWillMount() {
+        console.log(this.props.user, 'here is user');
         if (!this.props.user) {
-        let hasLocalStorageUser = false;
+            console.log('what the hell')
+            browserHistory.push('/login');
 
-        for (let key in localStorage) {
-          if (key.startsWith("firebase:authUser:")) {
-            hasLocalStorageUser = true;
-
-          }
+        // for (let key in localStorage) {
+        //     console.log(key, 'key');
+        //   if (key.startsWith("firebase:authUser:")) {
+        //     hasLocalStorageUser = true;
+        //     console.log(key, "key in lstorage")
+        //
+        //   }
+        // }
+        //
+        // if (!hasLocalStorageUser) {
+        //   browserHistory.push('/login');
+        // }
         }
-
-        if (!hasLocalStorageUser) {
-          browserHistory.push('/login');
-        }
-    }
     }
 
-    componentWillReceiveProps(nextProps) {
-      // 
-    //     console.log(nextProps, 'yo next props');
-    //   if (authenticated && !nextProps.authenticated) {
-    //       let hasLocalStorageUser = false;
-    //
-    //       for (let key in localStorage) {
-    //         if (key.startsWith("firebase:authUser:")) {
-    //           hasLocalStorageUser = true;
-    //
-    //         }
-    //       }
-    //
-    //       if (!hasLocalStorageUser) {
-    //         browserHistory.push('/login');
-    //       }
-    //
-    //   }
-    }
 
     render() {
         console.log(this.props, 'whatup')
