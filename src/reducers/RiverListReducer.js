@@ -6,7 +6,7 @@ import {
 export default (state = [], action) => {
   switch (action.type) {
     case INITIAL_RIVER_LIST:
-    console.log(action.payload, 'payload from initial list')
+      console.log(action.payload, 'payload from initial list')
 
       return action.payload;
     default:

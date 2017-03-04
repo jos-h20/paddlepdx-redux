@@ -7,8 +7,8 @@ import routes from './routes';
 
 export default function Root({history, store}) {
   return (
-      <Provider store={store}>
-        <Router history={history} routes={routes} />
-      </Provider>
+    <Provider store={store}>
+      <Router history={history} routes={routes} />
+    </Provider>
   );
 }

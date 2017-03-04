@@ -90,7 +90,7 @@ componentWillReceiveProps(nextProps) {
         <div className="error">{this.props.error}</div>
 
         </div>
-    </div>
+      </div>
     );
   }
 }
@@ -98,7 +98,7 @@ componentWillReceiveProps(nextProps) {
 const mapStateToProps = (state) => {
   const {  authenticated, error, email, password,loading, newUser, user, isUserSignedIn, isInProgress, hasError, errorMessage, uid } = state.auth;
   const selRivers = _.map(state.selectedRivers, (val, uid) => {
-      debugger;
+    debugger;
     return { ...val, uid}
   });
   return {  authenticated, error, loading, email, password, user, selRivers, newUser,isUserSignedIn, isInProgress, hasError, errorMessage, uid };
