@@ -1,5 +1,5 @@
 {
-  "name": "Paddle PDX",
+  "name": "paddle-pdx",
   "version": "1.0.0",
   "description": "A React/Redux site that stores data in Firebase and consumes an USGS API",
   "main": "index.js",
