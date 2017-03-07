@@ -16,7 +16,7 @@ http://paddlepdx.s3-website-us-west-2.amazonaws.com/
 
 * You must have Node.js installed on your computer.
 * https://nodejs.org/en/
-* Click [here](https://github.com/jos-h20/paddlepdx-redux then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
+* Click https://github.com/jos-h20/paddlepdx-redux then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
 
 ```
 	> npm install
