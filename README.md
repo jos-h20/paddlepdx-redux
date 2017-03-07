@@ -22,7 +22,7 @@ http://paddlepdx.s3-website-us-west-2.amazonaws.com/
 	> npm install
 	> npm start
 ```
-* Open your browser to localhost:8080
+* Open your browser to http://localhost:8080/
 
 ## Support and contact details
 
