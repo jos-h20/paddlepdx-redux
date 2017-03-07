@@ -32,7 +32,6 @@ class SelectedRiversList extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props !== nextProps && this.props.authenticated) {
-      // console.log(nextProps.selRivers, 'next props sel rivers')
       const rivers = nextProps.selRivers;
       this.setState({rivers});
 
@@ -41,7 +40,6 @@ class SelectedRiversList extends Component {
         riverIds.push(river.id);
       });
       const strRiverIds = riverIds.toString();
-      // console.log(strRiverIds, 'string river ids')
       this.setState({riverIds: strRiverIds})
     }
   }
@@ -50,7 +48,6 @@ class SelectedRiversList extends Component {
 
     if (!this.props.authenticated && !hasAuth) {
       this.setState({ num: 5 });
-      //console.log(this.state.num)
       hasAuth = true;
     }
 

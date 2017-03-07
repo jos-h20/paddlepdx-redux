@@ -15,22 +15,6 @@ class LoginForm extends Component {
   router: PropTypes.object
   };
 
-  onEmailChange(event) {
-    this.props.emailChanged(event.target.value);
-  }
-
-  onPasswordChange(event) {
-    this.props.passwordChanged(event.target.value);
-  }
-
-  loginUser(event) {
-    event.preventDefault();
-    const { email, password } = this.props;
-
-    this.props.loginUser({ email, password });
-
-  }
-
   signIn(event) {
     event.preventDefault();
     const { onSignInClick } = this.props;
@@ -38,26 +22,6 @@ class LoginForm extends Component {
     this.props.signIn({ onSignInClick });
 
   }
-
-  // componentWillMount() {
-  //   if (this.props.user) {
-  //     this.props.riversFetch();
-  //   }
-  // }
-
-
-  // renderButton() {
-  //   if (this.props.loading) {
-  //     return <div>Loading...</div>;
-  //   }
-  //   return (
-  //     <button onClick={this.onButtonClick.bind(this)}>
-  //       Login
-  //     </button>
-  //   );
-  // }
-
-
 
   render() {
 
@@ -96,6 +60,24 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser, riversFetch, signInSuccess, signInInProgress, signInError, signIn })(LoginForm);
 
 
+
+// Email functions and html
+
+// onEmailChange(event) {
+//   this.props.emailChanged(event.target.value);
+// }
+//
+// onPasswordChange(event) {
+//   this.props.passwordChanged(event.target.value);
+// }
+//
+// loginUser(event) {
+//   event.preventDefault();
+//   const { email, password } = this.props;
+//
+//   this.props.loginUser({ email, password });
+//
+// }
 // <div className="row">
 //
 //             <div className="col-xs-12 col-sm-8 col-sm-offset-2">

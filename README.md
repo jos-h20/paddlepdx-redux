@@ -1,6 +1,6 @@
 # _Paddle PDX_
 
-#### _Allows users to create a list of rivers that returns real time river flows_
+#### _Allows users to create a list of rivers that returns real time river flows._
 
 #### By _**Josh Overly**_
 

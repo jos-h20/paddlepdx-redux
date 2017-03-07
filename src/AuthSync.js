@@ -14,7 +14,6 @@ export function verifyAuth(dispatch) {
   });
 }
 
-
 export function getAuth(state) {
   return state.auth;
 }
