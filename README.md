@@ -6,7 +6,7 @@
 
 ## Description
 
-Users can sign in with Facebook and add rivers to their user account in Firebase.  The app will make an API call to the USGS API with the river IDs for those rivers and return the Cubic Feet per Second flow for each river and the most recent time it was recorded._
+_Users can sign in with Facebook and add rivers to their user account in Firebase.  The app will make an API call to the USGS API with the river IDs for those rivers and return the Cubic Feet per Second flow for each river and the most recent time it was recorded._
 
 ## Working Demo
 
@@ -26,7 +26,7 @@ http://paddlepdx.s3-website-us-west-2.amazonaws.com/
 
 ## Support and contact details
 
-_email: joshoverly@gmail.com_
+_http://www.joshoverly.com_
 
 ## Technologies Used
 
