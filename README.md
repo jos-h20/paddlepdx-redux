@@ -1,25 +1,37 @@
-# ReduxSimpleStarter
+# _Paddle PDX_
 
-Interested in learning [Redux](https://www.udemy.com/react-redux/)?
+#### _Allows users to create a list of rivers that returns real time river flows_
 
-###Getting Started###
+#### By _**Josh Overly**_
 
-There are two methods for getting started with this repo.
+## Description
 
-####Familiar with Git?#####
-Checkout this repo, install dependencies, then start the gulp process with the following:
+Users can sign in with Facebook and add rivers to their user account in Firebase.  The app will make an API call to the USGS API with the river IDs for those rivers and return the Cubic Feet per Second flow for each river and the most recent time it was recorded._
+
+## Working Demo
+
+http://paddlepdx.s3-website-us-west-2.amazonaws.com/
+
+## Setup/Installation Requirements
+
+* You must have Node.js installed on your computer.
+* https://nodejs.org/en/
+* Click [here](https://github.com/jos-h20/paddlepdx-redux then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
 
 ```
-	> git clone git@github.com:StephenGrider/ReduxSimpleStarter.git
-	> cd ReduxSimpleStarter
 	> npm install
 	> npm start
 ```
 
-####Not Familiar with Git?#####
-Click [here](https://github.com/StephenGrider/ReactStarter/releases) then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
 
-```
-	> npm install
-	> npm start
-```
+## Support and contact details
+
+_email: joshoverly@gmail.com_
+
+## Technologies Used
+
+_Bootstrap, Node, Webpack, React, Redux, Firebase_
+
+### License
+
+Copyright (c) 2017 **_OverlyDev Licensing MIT_**
